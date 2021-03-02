@@ -1,0 +1,15 @@
+{
+  "name": "flight-tracker-app",
+  "version": "1.0.0",
+  "description": "Basic plane tracking app with a location map.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Walker",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
