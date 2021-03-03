@@ -10,14 +10,15 @@
 <main>
   <section>
 <h1>Flight Tracker</h1>
-<form>
-  <label for="coordinates">Coordinates:</label><br>
-  <input type="text" id="coordinates" name="coordinates" value="coordinates here">
-  </form>
-  <br>
+
   <div id="map"></div>
   <br>
-
+  <form action="/home" method="GET">
+    <label for="coordinates">Coordinates:</label><br>
+    <input type="text" id="coordinates" name="coordinates" >
+    <input  type="submit"    onclick="tester()">
+    </form>
+    <button onclick="reAsign()">Re-assign</button>
 </section>
 </main>
       <!--  <script type="text/javascript" src="newjavascript.js"></script> -->
@@ -25,6 +26,15 @@
 var client= "<%-process.env.MAPBOX_TOKEN%>";
 
 var testCoords = [-0.2538433185283973, 51.351402083113165]
+
+function tester() {
+    //var input = document.getElementById("coordinates").value;
+    testCoords = [-0.1960792652195208, 51.37573224092478]
+}
+
+function reAsign(){
+  testCoords = [-0.1960792652195208, 51.37573224092478]
+}
 
 	mapboxgl.accessToken = client;
 var map = new mapboxgl.Map({
