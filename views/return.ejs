@@ -7,10 +7,13 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
     </head>
     <body>
+        <%
+        var holdCoords = EJSinputSearch; 
+        %>
 <main>
   <section>
-    <h1>Basic map</h1>
-
+<h1>Basic map</h1>
+<b>Inputted coordinates:</b> <%= EJSinputSearch %>
   <div id="map"></div>
   <br>
   <form action="/return" method="GET">
@@ -18,23 +21,23 @@
     <input type="text" id="coordinates" name="coordinates">
     <input  type="submit">
     </form>
- 
+    
 </section>
 </main>
       <!--  <script type="text/javascript" src="newjavascript.js"></script> -->
 <script>
 var client= "<%-process.env.MAPBOX_TOKEN%>";
 
-var testCoords = [-0.2538433185283973, 51.351402083113165]
-
+var testCoords = [<%= holdCoords%>] //Its the array brackets that make it work
 
 	mapboxgl.accessToken = client;
 var map = new mapboxgl.Map({
 container: 'map', // container id
 style: 'mapbox://styles/mapbox/streets-v11', // style URL
-center: testCoords, // starting position [lng, lat] they have to be reversed from 
+center: testCoords , // starting position [lng, lat] they have to be reversed from 
 zoom: 11 // starting zoom
 });
+
 
 map.addControl(new mapboxgl.NavigationControl(),"bottom-left"); 
 
@@ -47,6 +50,7 @@ new mapboxgl.Marker() //The code for the marker on the map.
         )
 )
 .addTo(map); //Its adding this marker to the const map up above
+
   </script>
 
     </body>
